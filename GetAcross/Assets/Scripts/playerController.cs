@@ -9,6 +9,8 @@ public class playerController : MonoBehaviour
     public float movementSpeed;
     public float rotationSpeed;
     Rigidbody rb;
+    private Animator playerAnim;
+    public int health = 3;
 
     [SerializeField] private float horizontalMouseSensitivity = 0.5f;
     [SerializeField] private float verticalMouseSensitivity = 0.5f;
@@ -18,35 +20,26 @@ public class playerController : MonoBehaviour
         Cursor.visible = true;
 
         rb = GetComponent<Rigidbody>();
+        playerAnim = GetComponent<Animator>();
     }
 
     void Update()
     {
-        //mouseLook();
 
+        playerMovement();
+
+    }
+
+    void playerMovement()
+    {
         transform.Rotate(0, Input.GetAxis("Mouse X") * rotationSpeed * Time.deltaTime, 0);
 
         transform.Translate(0, 0, Input.GetAxis("Vertical") * Time.deltaTime * movementSpeed);
         transform.Translate(Input.GetAxis("Horizontal") * Time.deltaTime * movementSpeed, 0, 0);
-
-        //if(Input.GetKey(KeyCode.W))
-        //{
-        //    rb.velocity = new Vector3(0, 0, 1) * movementSpeed;
-        //}
-        //if(Input.GetKey(KeyCode.S))
-        //{
-        //    rb.velocity = new Vector3(0, 0, -1) * movementSpeed;
-        //}
-        //if(Input.GetKey(KeyCode.A))
-        //{
-        //    rb.velocity = -transform.right * movementSpeed;
-        //}
-        //if(Input.GetKey(KeyCode.D))
-        //{
-        //    rb.velocity = transform.right * movementSpeed;
-        //}
-
+        //playerAnim.Play("Walk_Static");
+        
     }
+
 
     void mouseLook()
     {

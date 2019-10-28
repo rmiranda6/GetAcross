@@ -20,11 +20,12 @@ public class DetectCollisions : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        if(other.gameObject.tag == "Player")
+        Debug.Log("Hit");
+        if (collision.gameObject.tag == "Player")
         {
-
+            Debug.Log("Hit");
             Destroy(gameObject, 2f);
 
             Vector3 direction = Quaternion.Euler(-20, 0, 0) * -transform.forward;
@@ -34,7 +35,7 @@ public class DetectCollisions : MonoBehaviour
             moveForward.enabled = false;
             boxCollider.enabled = false;
 
-            Destroy(other.gameObject);
+            Destroy(collision.gameObject); // This destroys the player, try to make the player lose health, then make the player not visible, not destroyed.
         }
 
     }
