@@ -7,6 +7,8 @@ public class DetectCollisions : MonoBehaviour
     Rigidbody rb;
     moveForward moveForward;
     BoxCollider boxCollider;
+    playerController player;
+    GameManager gm;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -22,7 +24,6 @@ public class DetectCollisions : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Hit");
         if (collision.gameObject.tag == "Player")
         {
             Debug.Log("Hit");
@@ -35,7 +36,13 @@ public class DetectCollisions : MonoBehaviour
             moveForward.enabled = false;
             boxCollider.enabled = false;
 
-            Destroy(collision.gameObject); // This destroys the player, try to make the player lose health, then make the player not visible, not destroyed.
+            // Destroy(collision.gameObject); // This destroys the player, try to make the player lose health, then make the player not visible, not destroyed.
+            player.health--;
+            Debug.Log("Damage Taken");
+            if(player.health == 0)
+            {
+                gm.GameOver();
+            }
         }
 
     }

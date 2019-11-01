@@ -19,6 +19,8 @@ public class playerController : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = true;
 
+        health = 3;
+
         rb = GetComponent<Rigidbody>();
         playerAnim = GetComponent<Animator>();
     }
@@ -38,6 +40,11 @@ public class playerController : MonoBehaviour
         transform.Translate(Input.GetAxis("Horizontal") * Time.deltaTime * movementSpeed, 0, 0);
         //playerAnim.Play("Walk_Static");
         
+    }
+
+    public void Health()
+    {
+        health -= 1;
     }
 
 

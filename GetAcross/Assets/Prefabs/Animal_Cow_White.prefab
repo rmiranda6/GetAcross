@@ -1692,6 +1692,8 @@ GameObject:
   - component: {fileID: 4714503703768473560}
   - component: {fileID: -1358847912544255942}
   - component: {fileID: 776584820665996136}
+  - component: {fileID: -5482598017311125467}
+  - component: {fileID: 4774182688581890690}
   - component: {fileID: -8626104181356077940}
   m_Layer: 0
   m_Name: Animal_Cow_White
@@ -1772,6 +1774,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aaabcf9d93ba48745b3baeaf9e39d7d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-5482598017311125467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4714503703768567948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 036e91f3d1cca4a4e997cc7ca9c455f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4774182688581890690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4714503703768567948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffacb6019f5e9174890ecb2ae547fc86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackDamage: 1
+  player: {fileID: 1955128303761953541, guid: 25498cf81dc38644ab4f7b53fa7ca725, type: 3}
 --- !u!54 &-8626104181356077940
 Rigidbody:
   m_ObjectHideFlags: 0
