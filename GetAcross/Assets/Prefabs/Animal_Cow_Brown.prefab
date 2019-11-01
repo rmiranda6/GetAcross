@@ -887,7 +887,6 @@ GameObject:
   - component: {fileID: 859349971639468190}
   - component: {fileID: 8875179328846775903}
   - component: {fileID: 5890722350431066538}
-  - component: {fileID: -1596109843473874290}
   - component: {fileID: -8831379729081912277}
   - component: {fileID: 8558443279226232867}
   - component: {fileID: -312754059807657988}
@@ -958,18 +957,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 15
---- !u!114 &-1596109843473874290
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 859349971647014430}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aaabcf9d93ba48745b3baeaf9e39d7d5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &-8831379729081912277
 MonoBehaviour:
   m_ObjectHideFlags: 0

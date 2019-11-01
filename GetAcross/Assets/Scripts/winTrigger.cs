@@ -5,12 +5,12 @@ using UnityEngine;
 
 public class winTrigger : MonoBehaviour
 {
-    public TextMeshProUGUI winText;
+    public GameManager gm;
     void OnTriggerEnter(Collider collider)
     {
         if (collider.gameObject.CompareTag("Player"))
         {
-            winText.enabled = true;
+            gm.Win();
         }
     }
 }

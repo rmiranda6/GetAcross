@@ -23,6 +23,8 @@ public class PlayerHealth : MonoBehaviour
 
     bool damaged;
 
+    GameManager gm;
+
     void Start()
     {
         playerController = GetComponent<playerController>();
@@ -64,6 +66,7 @@ public class PlayerHealth : MonoBehaviour
     {
         isDead = true;
         playerController.enabled = false;
+        gm.GameOver();
     }
 
 }
