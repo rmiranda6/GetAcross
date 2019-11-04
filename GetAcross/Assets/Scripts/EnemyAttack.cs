@@ -36,7 +36,7 @@ public class EnemyAttack : MonoBehaviour
 
         if (collision.gameObject.tag == "Player")
         {
-            Debug.Log("Hit");
+            //The cow till be thrown away by hitting the player and will be destroyed within two seconds
             Destroy(gameObject, 2f);
 
             Vector3 direction = Quaternion.Euler(-20, 0, 0) * -transform.forward;
@@ -51,6 +51,7 @@ public class EnemyAttack : MonoBehaviour
 
     void Attack()
     {
+        //The player takes damage
         if(playerHealth.currentHealth > 0)
         {
             playerHealth.TakeDamage(attackDamage);

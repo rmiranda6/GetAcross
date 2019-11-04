@@ -13,21 +13,18 @@ public class GameManager : MonoBehaviour
 
     public Button restartButton;
 
-    void Start()
-    {
-        
-    }
+    public Button mainButton;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public AudioSource sadSound;
+
 
     public void GameOver()
     {
+        sadSound.Play();
         gameOverText.gameObject.SetActive(true);
         restartButton.gameObject.SetActive(true);
+        mainButton.gameObject.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
         
     }
     public void RestartGame()
@@ -39,5 +36,12 @@ public class GameManager : MonoBehaviour
     {
         winText.gameObject.SetActive(true);
         restartButton.gameObject.SetActive(true);
+        mainButton.gameObject.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
+    }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
 }

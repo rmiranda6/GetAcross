@@ -8,6 +8,6 @@ public class moveForward : MonoBehaviour
 
     void Update()
     {
-        transform.Translate(Vector3.forward * speed * Time.deltaTime);
+        transform.Translate(Vector3.forward * speed * Time.deltaTime); // Moves the animal forward
     }
 }

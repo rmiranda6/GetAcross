@@ -23,18 +23,21 @@ public class PlayerHealth : MonoBehaviour
 
     bool damaged;
 
-    GameManager gm;
+    public GameManager gm;
 
     void Start()
     {
         playerController = GetComponent<playerController>();
 
         currentHealth = startingHealth;
+
+        gm = FindObjectOfType(typeof(GameManager)) as GameManager;
     }
 
     // Update is called once per frame
     void Update()
     {
+        //This shows a red screen for when the player gets damaged
         if(damaged)
         {
             damageImage.color = flashColor;
@@ -50,6 +53,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(int amount)
     {
+        //When the player takes damage it will display the players current health bar
         damaged = true;
 
         currentHealth -= amount;
@@ -58,12 +62,13 @@ public class PlayerHealth : MonoBehaviour
 
         if(currentHealth <= 0 && !isDead)
         {
-            Death();
+            Death();//When the player's health reaches zero, the Death method will be called
         }
     }
 
     void Death()
     {
+        //When the player is dead, the pop up game over menu will pop up
         isDead = true;
         playerController.enabled = false;
         gm.GameOver();

@@ -8,21 +8,14 @@ public class playerController : MonoBehaviour
 
     public float movementSpeed;
     public float rotationSpeed;
-    Rigidbody rb;
-    private Animator playerAnim;
     public int health = 3;
-
-    [SerializeField] private float horizontalMouseSensitivity = 0.5f;
-    [SerializeField] private float verticalMouseSensitivity = 0.5f;
+    public AudioSource hitSound;
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = true;
 
         health = 3;
 
-        rb = GetComponent<Rigidbody>();
-        playerAnim = GetComponent<Animator>();
     }
 
     void Update()
@@ -34,34 +27,33 @@ public class playerController : MonoBehaviour
 
     void playerMovement()
     {
+        //Moves the camera left and right along with the player
         transform.Rotate(0, Input.GetAxis("Mouse X") * rotationSpeed * Time.deltaTime, 0);
-
+        //Moves the player forward, backwards and left and right
         transform.Translate(0, 0, Input.GetAxis("Vertical") * Time.deltaTime * movementSpeed);
         transform.Translate(Input.GetAxis("Horizontal") * Time.deltaTime * movementSpeed, 0, 0);
-        //playerAnim.Play("Walk_Static");
-        
+        if(Input.GetKey(KeyCode.LeftShift))
+        {
+            transform.Translate(0, 0, Input.GetAxis("Vertical") * Time.deltaTime * movementSpeed * 1.5f); // Makes the player run
+        }
+
     }
 
     public void Health()
     {
-        health -= 1;
+        health -= 1; // player loses health
     }
 
-
-    void mouseLook()
+    private void OnCollisionEnter(Collision collision)
     {
-        float deltaMouseHorizontal = Input.GetAxis("Mouse X") * horizontalMouseSensitivity;
-        float deltaMouseVertical = Input.GetAxis("Mouse Y") * verticalMouseSensitivity;
-        float newCameraRotY = transform.eulerAngles.y + deltaMouseHorizontal;
-        float newCameraRotX = transform.eulerAngles.x - deltaMouseVertical;
-
-        transform.eulerAngles = new Vector3(newCameraRotX, newCameraRotY, 0);
-
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if(collision.gameObject.tag == "Enemy")
         {
-            Cursor.lockState = CursorLockMode.None;
+            hitSound.Play(); // When the player hits a cow, a hit sound will play
         }
     }
+
+
+
 
 
 }
